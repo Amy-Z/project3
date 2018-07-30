@@ -23,7 +23,8 @@ from django.contrib.auth import views as auth_views
 from orders import views as orders_views
 
 urlpatterns = [
-    # path(r'^$', orders_views.home, name='home'),
+    path("", include("orders.urls")),
+    # path("", orders_views.home, name='home'),
     path("admin/", admin.site.urls),
     path("signup/", orders_views.signup, name='signup'),
     # url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),

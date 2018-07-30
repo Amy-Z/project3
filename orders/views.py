@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 
 @login_required
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'orders/home.html')
 
 def signup(request):
     if request.method == 'POST':
@@ -19,7 +19,7 @@ def signup(request):
             return redirect('home')
     else:
         form = UserCreationForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'orders/signup.html', {'form': form})
 
 
 # from django.http import HttpResponse
