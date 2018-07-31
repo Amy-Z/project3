@@ -23,10 +23,12 @@ from django.contrib.auth import views as auth_views
 from orders import views as orders_views
 
 urlpatterns = [
-    path("", include("orders.urls")),
+    # path("", include("orders.urls")),
     # path("", orders_views.home, name='home'),
     path("admin/", admin.site.urls),
-    path("signup/", orders_views.signup, name='signup'),
+    path("", orders_views.signup, name='signup'),
+    path("login/", orders_views.login_view, name='login'),
+
     # url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     # url(r'^logout/$', auth_views.logout, {'next_page': 'login'}, name='logout'),
 ]
