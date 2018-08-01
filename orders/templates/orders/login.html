@@ -7,47 +7,22 @@
   {% endif %}
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
-    <div>
-      <td>{{ form.username.label_tag }}</td>
-      <input placeholder="Username" class="form-control"></input><br>
-      <td>{{ form.username }}</td>
-    </div>
-    <div>
-      <td>{{ form.password.label_tag }}</td>
-      <input placeholder="Password" type="password" class="form-control"></input><br>
-      <td>{{ form.password }}</td>
-    </div>
-
-    <!--<input type="hidden" name="next" value="{{ next }}" />-->
-    <!--<input placeholder="Username" class="form-control"></input><br>-->
-    <!--<input placeholder="Password" type="password" class="form-control"></input><br>-->
-    <!--{% for field in form %}-->
-    <!--  <p>-->
-    <!--    {{ field.label_tag }}<br>-->
-    <!--    {{ field }}<br>-->
-    <!--    {% for error in field.errors %}-->
-    <!--      <p style="color: red">{{ error }}</p>-->
-    <!--    {% endfor %}-->
-    <!--    {% if field.help_text %}-->
-    <!--      <p><small style="color: grey">{{ field.help_text }}</small></p>-->
-    <!--    {% endif %}-->
-    <!--  </p>-->
-    <!--{% endfor %}-->
+    <input type="hidden" name="next" value="{{ next }}" />
+    <input placeholder="Username" class="form-control" name="username"><br>
+    <input placeholder="Password" type="password" class="form-control" name="password"><br>
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}<br>
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+        {% if field.help_text %}
+          <p><small style="color: grey">{{ field.help_text }}</small></p>
+        {% endif %}
+      </p>
+    {% endfor %}
     <button class="btn btn-primary" type="submit" action="{% url 'home' %}">Log in</button>
     <a href="{% url 'signup' %}">New to Pinnochio's Pizza? Sign up</a>
   </form>
 {% endblock %}
-
-<!--{% csrf_token %}-->
-<!--{% for field in form %}-->
-<!--  <p>-->
-<!--    {{ field.label_tag }}<br>-->
-<!--    {{ field }}-->
-<!--    {% if field.help_text %}-->
-<!--      <small style="color: grey">{{ field.help_text }}</small>-->
-<!--    {% endif %}-->
-<!--    {% for error in field.errors %}-->
-<!--      <p style="color: red">{{ error }}</p>-->
-<!--    {% endfor %}-->
-<!--  </p>-->
-<!--{% endfor %}-->
