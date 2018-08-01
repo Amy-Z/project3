@@ -11,14 +11,6 @@ def home(request):
     messages.success(request, "You have successfully logged in.")
     return render(request, 'orders/home.html')
 
-# def home(request):
-#     if not request.user.is_authenticated:
-#         return render(request, "orders/login.html", {"message": None})
-#     context = {
-#         "order": request.order
-#     }
-#     return render(request, "orders/home.html", context)
-
 
 def signup(request):
     if request.method == 'POST':
@@ -43,7 +35,8 @@ def login_view(request):
         login_auth(request, user)
         return HttpResponseRedirect(reverse("home"))
     else:
-        return render(request, 'orders/login.html', {"message": "Invalid credentials."})
+        messages.error(request, "Invalid username or password. Please try again.")
+        return render(request, 'orders/login.html')
 
 def loginred(request):
     return render(request, 'orders/login.html')
@@ -53,16 +46,3 @@ def logout_view(request):
     logout_auth(request)
     return render(request, "orders/signup.html")
 
-# def login_view(request):
-#     if request.method == 'POST':
-#         form = UserCreationForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             username = form.cleaned_data.get('username')
-#             raw_password = form.cleaned_data.get('password1')
-#             user = authenticate(username=username, password=raw_password)
-#             login_auth(request, user)
-#             return redirect('login')
-#     else:
-#         form = UserCreationForm()
-#         return render(request, 'orders/home.html', {'form': form})
