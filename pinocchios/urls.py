@@ -28,9 +28,10 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", orders_views.signup, name='signup'),
     path("login/", orders_views.login_view, name='login'),
+    path("loginred/", orders_views.loginred, name="loginred"),
     path("home/", orders_views.home, name='home'),
     path("logout/", orders_views.logout_view, name='logout'),
-    path("loginred/", orders_views.loginred, name="loginred"),
+    path("logoutred/", orders_views.logoutred, name="logoutred"),
     # url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     # url(r'^logout/$', auth_views.logout, {'next_page': 'login'}, name='logout'),
 ]

@@ -4,11 +4,20 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
-
+from .models import *
 
 @login_required
 def home(request):
     messages.success(request, "You have successfully logged in.")
+    menu = {
+        "toppings": Toppings.objects.all(),
+        "regpizza": RegPizza.objects.all(),
+        "sicilian": SicilianPizza.objects.all(),
+        "subs": Subs.objects.all(),
+        "pasta": Pasta.objects.all(),
+        "salads": Salads.objects.all(),
+        "dinner": DinnerPlatter.objects.all(),
+    }
     return render(request, 'orders/home.html')
 
 
@@ -42,7 +51,10 @@ def loginred(request):
     return render(request, 'orders/login.html')
 
 def logout_view(request):
-    messages.info(request, "You have successfully logged out.")
     logout_auth(request)
-    return render(request, "orders/signup.html")
+    return render(request, "orders/login.html")
+    messages.info(request, "You have successfully logged out.")
 
+
+def logoutred(request):
+    return render(request, 'orders/login.html')

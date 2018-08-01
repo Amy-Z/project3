@@ -2,6 +2,9 @@
 
 {% block content %}
   <h2>Log in to Pinnochio's Pizza</h2>
+  {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+  {% endfor %}
   {% if form.errors %}
     <p style="color: red">Your username and password didn't match. Please try again.</p>
   {% endif %}
