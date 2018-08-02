@@ -20,8 +20,8 @@
         {% for retrieve in regpizza %}
             <tr>
                 <td scope="col">{{ retrieve.type_pizza }}</td>
-                <td scope="col">{{ retrieve.small_price }} <button class="btn btn-link" href="{% url 'cart' retrieve.type_pizza retrieve.small_price %}">Add</button></td>
-                <td scope="col">{{ retrieve.large_price }} <button class="btn btn-link" href="{% url 'cart' retrieve.type_pizza retrieve.large_price %}">Add</button></td>
+                <td scope="col">{{ retrieve.small_price }} <a class="btn btn-link" href="{% url 'cart' retrieve.type_pizza retrieve.small_price %}">Add</button></td>
+                <td scope="col">{{ retrieve.large_price }} <a class="btn btn-link" href="{% url 'cart' retrieve.type_pizza retrieve.large_price %}">Add</button></td>
             </tr>
         {% endfor %}
         </tbody>
@@ -40,8 +40,8 @@
         {% for retrieve in sicilian %}
             <tr>
                 <td scope="col">{{ retrieve.type_pizza }}
-                <td scope="col">{{ retrieve.small_price }} <button class="btn btn-link">Add</button></td></td>
-                <td scope="col">{{ retrieve.large_price }} <button class="btn btn-link">Add</button></td></td>
+                <td scope="col">{{ retrieve.small_price }} <a class="btn btn-link" href="{% url 'cart' retrieve.type_pizza retrieve.large_price %}">Add</button></td></td>
+                <td scope="col">{{ retrieve.large_price }} <a class="btn btn-link" href="{% url 'cart' retrieve.type_pizza retrieve.large_price %}">Add</button></td></td>
             </tr>
         {% endfor %}
         </tbody>
@@ -62,10 +62,10 @@
         {% for retrieve in subs %}
             <tr>
                 <td scope="col">{{ retrieve.type_sub }}
-                <td scope="col">{{ retrieve.small_price }} <button class="btn btn-link">Add</button></td></td>
-                <td scope="col">{{ retrieve.large_price }} <button class="btn btn-link">Add</button></td></td>
-                <td scope="col">{{ retrieve.sml_cheese_p }} <button class="btn btn-link">Add</button></td></td>
-                <td scope="col">{{ retrieve.lrg_cheese_p }} <button class="btn btn-link">Add</button></td></td>
+                <td scope="col">{{ retrieve.small_price }} <a class="btn btn-link" href="{% url 'cart' retrieve.type_sub retrieve.small_price %}">Add</button></td></td>
+                <td scope="col">{{ retrieve.large_price }} <a class="btn btn-link" href="{% url 'cart' retrieve.type_sub retrieve.large_price %}">Add</button></td></td>
+                <td scope="col">{{ retrieve.sml_cheese_p }} <a class="btn btn-link" href="{% url 'cart' retrieve.type_sub retrieve.sml_cheese_p %}">Add</button></td></td>
+                <td scope="col">{{ retrieve.lrg_cheese_p }} <a class="btn btn-link" href="{% url 'cart' retrieve.type_sub retrieve.lrg_cheese_p %}">Add</button></td></td>
             </tr>
         {% endfor %}
         </tbody>
@@ -83,7 +83,7 @@
         {% for retrieve in pasta %}
             <tr>
                 <td scope="col">{{ retrieve.type_pasta }}
-                <td scope="col">{{ retrieve.pasta_price }} <button class="btn btn-link">Add</button></td></td>
+                <td scope="col">{{ retrieve.pasta_price }} <a class="btn btn-link" href="{% url 'cart' retrieve.type_pasta retrieve.pasta_price %}">Add</button></td>
             </tr>
         {% endfor %}
         </tbody>
@@ -101,7 +101,7 @@
         {% for retrieve in salads %}
             <tr>
                 <td scope="col">{{ retrieve.type_salad }}
-                <td scope="col">{{ retrieve.salad_price }} <button class="btn btn-link">Add</button></td></td>
+                <td scope="col">{{ retrieve.salad_price }} <a class="btn btn-link" href="{% url 'cart' retrieve.type_salad retrieve.salad_price %}">Add</button></td></td>
             </tr>
         {% endfor %}
         </tbody>
@@ -120,8 +120,8 @@
         {% for retrieve in dinner %}
             <tr>
                 <td scope="col">{{ retrieve.type_dinner }}
-                <td scope="col">{{ retrieve.sml_dinner_price }} <button class="btn btn-link">Add</button></td></td>
-                <td scope="col">{{ retrieve.lrg_dinner_price }} <button class="btn btn-link">Add</button></td></td>
+                <td scope="col">{{ retrieve.sml_dinner_price }} <a class="btn btn-link" href="{% url 'cart' retrieve.type_dinner retrieve.sml_dinner_price %}">Add</button></td></td>
+                <td scope="col">{{ retrieve.lrg_dinner_price }} <a class="btn btn-link" href="{% url 'cart' retrieve.type_dinner retrieve.lrg_dinner_price %}">Add</button></td></td>
             </tr>
         {% endfor %}
         </tbody>

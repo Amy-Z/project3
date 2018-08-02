@@ -20,12 +20,6 @@ def home(request):
     }
     return render(request, 'orders/home.html', menu)
 
-@login_required
-def shoppingcart(request, type_pizza, price):
-    username = request.user.username
-    print("Username:" + username)
-
-
 
 def signup(request):
     if request.method == 'POST':
@@ -64,3 +58,27 @@ def logout_view(request):
 
 def logoutred(request):
     return render(request, 'orders/login.html')
+
+@login_required
+def cart(request, type_pizza, price):
+    print("hello world entering the shopping cart ")
+    username = request.user.username
+    food = Order(user=username, pizza=type_pizza, yumprice=price)
+    food.save()
+    print("Username:" + username)
+    menu = {
+        "toppings": Topping.objects.all(),
+        "regpizza": RegPizza.objects.all(),
+        "sicilian": SicilianPizza.objects.all(),
+        "subs": Subs.objects.all(),
+        "pasta": Pasta.objects.all(),
+        "salads": Salads.objects.all(),
+        "dinner": DinnerPlatter.objects.all(),
+    }
+    return render(request, 'orders/home.html', menu)
+
+
+@login_required
+def showcart():
+    messages.info(request, "Here are the items in your shopping cart.")
+    return render(request, 'orders/cart.html')

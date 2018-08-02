@@ -39,8 +39,10 @@ class DinnerPlatter(models.Model):
     sml_dinner_price = models.DecimalField(decimal_places=2, max_digits=4)
     lrg_dinner_price = models.DecimalField(decimal_places=2, max_digits=4)
 
-class User(models.Model):
+class Order(models.Model):
     user = models.CharField(max_length=150)
+    pizza = models.CharField(max_length=30)
+    yumprice = models.DecimalField(decimal_places=2, max_digits=4)
 
 # class Pizza(models.Model):
 #     name = models.CharField(max_length=50)
