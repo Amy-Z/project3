@@ -24,12 +24,5 @@ urlpatterns = [
     path("loginred", views.loginred, name="loginred"),
     path("logout", views.logout_view, name="logout"),
     path("logoutred", views.logoutred, name="logoutred"),
-
+    path("cart/<type_pizza>/<pizza>", views.shoppingcart, name="cart")
 ]
-
-    # path('', orders_views.signup, name='signup'),
-    # path("admin/", admin.site.urls),
-    # url(r'^$', orders_views.home, name='home'),
-    # # url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
-    # # url(r'^logout/$', auth_views.logout, {'next_page': 'login'}, name='logout'),
-    # url(r'^signup/$', orders_views.signup, name='signup'),

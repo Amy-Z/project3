@@ -32,6 +32,7 @@ urlpatterns = [
     path("home/", orders_views.home, name='home'),
     path("logout/", orders_views.logout_view, name='logout'),
     path("logoutred/", orders_views.logoutred, name="logoutred"),
+    path("cart/<type_pizza>/<pizza>", orders_views.shoppingcart, name="cart"),
     # url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     # url(r'^logout/$', auth_views.logout, {'next_page': 'login'}, name='logout'),
 ]

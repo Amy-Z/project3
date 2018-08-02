@@ -20,6 +20,12 @@ def home(request):
     }
     return render(request, 'orders/home.html', menu)
 
+@login_required
+def shoppingcart(request, type_pizza, price):
+    username = request.user.username
+    print("Username:" + username)
+
+
 
 def signup(request):
     if request.method == 'POST':
