@@ -26,5 +26,6 @@ urlpatterns = [
     path("logout", views.logout_view, name="logout"),
     path("logoutred", views.logoutred, name="logoutred"),
     path("foodorder", views.showcart, name="foodorder"),
+    path("confirm", views.confirm, name="confirm"),
     path("cart/<type_pizza>/<price>", views.cart, name="cart"),
 ]

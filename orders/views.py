@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
+from django.db.models import Sum
 from .models import *
 
 @login_required
@@ -52,7 +53,7 @@ def loginred(request):
 
 def logout_view(request):
     logout_auth(request)
-    return render(request, "orders/login.html")
+    return render(request, 'orders/login.html')
     messages.info(request, "You have successfully logged out.")
 
 
@@ -61,7 +62,6 @@ def logoutred(request):
 
 @login_required
 def cart(request, type_pizza, price):
-    print("hello world entering the shopping cart ")
     username = request.user.username
     food = Order(user=username, pizza=type_pizza, yumprice=price)
     food.save()
@@ -79,6 +79,17 @@ def cart(request, type_pizza, price):
 
 
 @login_required
-def showcart():
+def showcart(request):
     messages.info(request, "Here are the items in your shopping cart.")
-    return render(request, 'orders/cart.html')
+    username = request.user.username
+    yumorder = {
+        "order": Order.objects.all(),
+    }
+    total = Order.objects.aggregate(Sum('yumprice'))
+    print(total)
+    return render(request, 'orders/cart.html',yumorder,total)
+
+@login_required
+def confirm(request):
+    messages.info(request, "Would you like to place your order now?")
+    return render(request, 'orders/confirm.html')

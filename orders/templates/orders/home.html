@@ -6,7 +6,7 @@
         <div class="alert alert-{{ message.tags }}">{{ message }}</div>
     {% endfor %}
     <br><br>
-    <button class="btn btn-primary" type="submit">Shopping Cart</button>
+    <a class="btn btn-primary" type="submit" href="{% url 'foodorder' %}">Shopping Cart</button></a>
     <h3 style="color:#cf180c">Regular Pizzas</h3>
     <table class="table table-hover">
         <thead class="thead-dark">
