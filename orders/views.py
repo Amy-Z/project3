@@ -10,7 +10,7 @@ from .models import *
 def home(request):
     messages.success(request, "You have successfully logged in.")
     menu = {
-        "toppings": Toppings.objects.all(),
+        "toppings": Topping.objects.all(),
         "regpizza": RegPizza.objects.all(),
         "sicilian": SicilianPizza.objects.all(),
         "subs": Subs.objects.all(),
@@ -18,7 +18,7 @@ def home(request):
         "salads": Salads.objects.all(),
         "dinner": DinnerPlatter.objects.all(),
     }
-    return render(request, 'orders/home.html')
+    return render(request, 'orders/home.html', menu)
 
 
 def signup(request):

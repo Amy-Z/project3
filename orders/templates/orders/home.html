@@ -1,9 +1,147 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <center><h3>Welcome, {{ user.username }}!</h3></center>
     {% for message in messages %}
         <div class="alert alert-{{ message.tags }}">{{ message }}</div>
     {% endfor %}
-  <h2>Welcome, {{ user.username }}!</h2>
-  {% render_table Pasta %}
+    <br><br>
+
+    <h3 style="color:#cf180c">Regular Pizzas</h3>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col" width="33%">Type</th>
+            <th scope="col" width="33%">Small ($)</th>
+            <th scope="col" width="33%">Large ($)</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for retrieve in regpizza %}
+            <tr>
+                <td scope="col">{{ retrieve.type_pizza }}</td>
+                <td scope="col">{{ retrieve.small_price }} <button class="btn btn-link">Add</button></td>
+                <td scope="col">{{ retrieve.large_price }} <button class="btn btn-link">Add</button></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table><br><br>
+
+    <h3 style="color:#cf180c">Sicilian Pizzas</h3>
+    <table class="table table-hover">
+        <thead class="thead-dark" width="20%">
+        <tr>
+            <th scope="col" width="33%">Type</th>
+            <th scope="col" width="33%">Small ($)</th>
+            <th scope="col" width="33%">Large ($)</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for retrieve in sicilian %}
+            <tr>
+                <td scope="col">{{ retrieve.type_pizza }}
+                <td scope="col">{{ retrieve.small_price }} <button class="btn btn-link">Add</button></td></td>
+                <td scope="col">{{ retrieve.large_price }} <button class="btn btn-link">Add</button></td></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table><br><br>
+
+    <h3 style="color:#cf180c">Subs</h3>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col" width="26%">Type</th>
+            <th scope="col" width="18%">Small ($)</th>
+            <th scope="col" width="18%">Large ($)</th>
+            <th scope="col" width="20%">Small + Cheese ($)</th>
+            <th scope="col" width="28%">Large + Cheese ($)</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for retrieve in subs %}
+            <tr>
+                <td scope="col">{{ retrieve.type_sub }}
+                <td scope="col">{{ retrieve.small_price }} <button class="btn btn-link">Add</button></td></td>
+                <td scope="col">{{ retrieve.large_price }} <button class="btn btn-link">Add</button></td></td>
+                <td scope="col">{{ retrieve.sml_cheese_p }} <button class="btn btn-link">Add</button></td></td>
+                <td scope="col">{{ retrieve.lrg_cheese_p }} <button class="btn btn-link">Add</button></td></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table><br><br>
+
+    <h3 style="color:#cf180c">Pastas</h3>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col" width="33%">Type</th>
+            <th scope="col" width="66%">Price ($)</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for retrieve in pasta %}
+            <tr>
+                <td scope="col">{{ retrieve.type_pasta }}
+                <td scope="col">{{ retrieve.pasta_price }} <button class="btn btn-link">Add</button></td></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table><br>
+
+    <h3 style="color:#cf180c">Salads</h3>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col" width="33%">Type</th>
+            <th scope="col" width="66%">Price ($)</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for retrieve in salads %}
+            <tr>
+                <td scope="col">{{ retrieve.type_salad }}
+                <td scope="col">{{ retrieve.salad_price }} <button class="btn btn-link">Add</button></td></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table><br><br>
+
+    <h3 style="color:#cf180c">Dinner Platters</h3>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col" width="33%">Type</th>
+            <th scope="col" width="33%">Small ($)</th>
+            <th scope="col" width="33%">Large ($)</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for retrieve in dinner %}
+            <tr>
+                <td scope="col">{{ retrieve.type_dinner }}
+                <td scope="col">{{ retrieve.sml_dinner_price }} <button class="btn btn-link">Add</button></td></td>
+                <td scope="col">{{ retrieve.lrg_dinner_price }} <button class="btn btn-link">Add</button></td></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table><br><br>
+
+    <h3 style="color:#cf180c">Toppings</h3>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Type</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for retrieve in toppings %}
+            <tr>
+                <td scope="col">{{ retrieve.name }}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table><br><br>
+
+
 {% endblock %}
